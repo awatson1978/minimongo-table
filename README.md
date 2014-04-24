@@ -1,7 +1,7 @@
-hello-datatables
+minimongo-tables
 ================
 
-Meteor applet demonstrating Bootstrap3 datatables.  Demo available at [http://hello-datatables.meteor.com/](http://hello-datatables.meteor.com/)  
+Meteor applet demonstrating Minimongo based table with responsive Bootstrap3 layout, pagination, and jQuery sorting.  Demo available at [http://minimongo-table.meteor.com/](http://minimongo-table.meteor.com/)  
 
 
 Installation  
@@ -9,7 +9,7 @@ Installation
 
 ````sh
 # Should be as simple as cloning the repository...  
-git clone https://github.com/awatson1978/hello-datatables.git
+git clone https://github.com/awatson1978/minimongo-table.git
 
 # And then running it...
 sudo mrt
