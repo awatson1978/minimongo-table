@@ -1,7 +1,9 @@
 minimongo-tables
 ================
 
-Meteor applet demonstrating Minimongo based table with responsive Bootstrap3 layout, pagination, and jQuery sorting.  Demo available at [http://minimongo-table.meteor.com/](http://minimongo-table.meteor.com/)  
+Meteor applet demonstrating Minimongo based table with responsive Bootstrap3 layout, pagination, and jQuery sorting.  Very meteor-centric, and uses native minimongo $skip, $limit and $regex search features.  
+
+Demo available at [http://minimongo-table.meteor.com/](http://minimongo-table.meteor.com/)  
 
 
 Installation  
