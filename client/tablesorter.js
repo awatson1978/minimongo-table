@@ -9,27 +9,6 @@ Meteor.autorun(function(){
   Meteor.subscribe('customerAccounts');
 });
 
-Template.miniMongoTable.customersList = function(){
-  Session.set('receivedData', new Date());
-  Session.set('paginationCount', Math.floor(CustomerAccounts.find().count() / Session.get('tableLimit')));
-  return CustomerAccounts.find({
-    LastName: { $regex: Session.get('accountSearchFilter'), $options: 'i' }
-  },{limit: Session.get('tableLimit'), skip: Session.get('skipCount')});
-}
-
-
-Template.miniMongoTable.rendered = function(){
-  $(this.find('#example')).tablesorter();
-
-  Deps.autorun(function(){
-    console.log(Session.get('receivedData'))
-    setTimeout(function(){
-      $("#example").trigger("update");
-    }, 200);
-  });
-};
-
-
 Template.miniMongoTable.events({
   'keyup #searchInput':function(){
     Session.set('accountSearchFilter', $('#searchInput').val());
@@ -50,46 +29,66 @@ Template.miniMongoTable.events({
   }
 });
 
+Template.miniMongoTable.helpers({
+  customersList: function(){
+    Session.set('receivedData', new Date());
+    Session.set('paginationCount', Math.floor(CustomerAccounts.find().count() / Session.get('tableLimit')));
+    return CustomerAccounts.find({$or:[
+      {FirstName: { $regex: Session.get('accountSearchFilter'), $options: 'i' }},
+      {LastName: { $regex: Session.get('accountSearchFilter'), $options: 'i' }},
+      {Company: { $regex: Session.get('accountSearchFilter'), $options: 'i' }},
+      {Zip: { $regex: Session.get('accountSearchFilter'), $options: 'i' }},
+      {Email: { $regex: Session.get('accountSearchFilter'), $options: 'i' }}
+      ]
+    },{limit: Session.get('tableLimit'), skip: Session.get('skipCount')});
+  },
+  rendered: function(){
+    $(this.find('#example')).tablesorter();
 
-Template.miniMongoTable.getPaginationCount = function(){
-  return Session.get('paginationCount');
-}
-
-Template.miniMongoTable.paginationButtonList = function(){
-  var paginationArray = [];
-  for (var i = 0; i < Session.get('paginationCount'); i++) {
-    paginationArray[i] = {
-      index: i
+    Deps.autorun(function(){
+      console.log(Session.get('receivedData'))
+      setTimeout(function(){
+        $("#example").trigger("update");
+      }, 200);
+    });
+  },
+  getPaginationCount: function(){
+    return Session.get('paginationCount');
+  },
+  paginationButtonList: function(){
+    var paginationArray = [];
+    for (var i = 0; i < Session.get('paginationCount'); i++) {
+      paginationArray[i] = {
+        index: i
+      };
     };
-  };
-  return paginationArray;
-};
-
-Template.miniMongoTable.isTwentyActive = function(){
-  if(Session.get('tableLimit') === 20){
-    return "active";
+    return paginationArray;
+  },
+  isTwentyActive: function(){
+    if(Session.get('tableLimit') === 20){
+      return "active";
+    }
+  },
+  isFiftyActive: function(){
+    if(Session.get('tableLimit') === 50){
+      return "active";
+    }
+  },
+  isHundredActive: function(){
+    if(Session.get('tableLimit') === 100){
+      return "active";
+    }
   }
-};
-Template.miniMongoTable.isFiftyActive = function(){
-  if(Session.get('tableLimit') === 50){
-    return "active";
+});
+
+
+Template.paginationButton.helpers({
+  pageActive: function(){
+    if(this.index === Session.get('selectedPagination')){
+      return "active";
+    }
+  },
+  getPage: function(){
+    return this.index + 1;
   }
-};
-Template.miniMongoTable.isHundredActive = function(){
-  if(Session.get('tableLimit') === 100){
-    return "active";
-  }
-
-
-
-Template.paginationButton.pageActive = function(){
-  if(this.index === Session.get('selectedPagination')){
-    return "active";
-  }
-}
-Template.paginationButton.getPage = function(){
-  return this.index + 1;
-}
-
-
-};
+});
