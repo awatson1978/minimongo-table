@@ -14,7 +14,7 @@ Installation
 git clone https://github.com/awatson1978/minimongo-table.git
 
 # And then running it...
-sudo mrt
+meteor
 ````
 
 
