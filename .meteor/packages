@@ -11,4 +11,4 @@ nemo64:bootstrap
 natestrauser:font-awesome
 
 #testing pacakges
-clinical:nightwatch
+clinical:nightwatch@1.5.1
