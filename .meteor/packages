@@ -3,8 +3,15 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
+#
 standard-app-packages
 insecure
 less
 nemo64:bootstrap
 natestrauser:font-awesome
+
+#testing pacakges
+velocity:nightwatch-framework
+velocity:html-reporter
+
+#clinical:nightwatch

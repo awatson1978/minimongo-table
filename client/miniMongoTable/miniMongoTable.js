@@ -75,7 +75,7 @@ Template.miniMongoTable.helpers({
   },
   rendered: function() {
     // step A:  initialize the table sorting functionality
-    $(this.find('#example')).tablesorter();
+    $(this.find('#customersTable')).tablesorter();
 
     // the Tracker API watches Collection and Session objects
     // so what we're doing here is registering a Tracker to watch the
@@ -93,7 +93,7 @@ Template.miniMongoTable.helpers({
       setTimeout(function() {
         // step F:  update the tablesorting library 200ms after receiving data
         // and Blaze has had a change to rerender the table
-        $("#example").trigger("update");
+        $("#customersTable").trigger("update");
       }, 200);
     });
   },
