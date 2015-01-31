@@ -3,22 +3,27 @@
 </head>
 
 <body>
-  {{> miniMongoTable}}
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Minimongo Table</a>
+    </div>
+    <ul class="nav navbar-nav pull-right">
+      <li>
+        <a href="http://github.com/awatson1978/minimongo-table"><i class="fa fa-github"></i> get the code</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="container navbar-offset">
+    {{> miniMongoTable}}
+  </div>
+  <nav class="navbar navbar-default navbar-fixed-bottom">
+    <ul class="nav navbar-nav">
+      <li><a href="#">Action</a></li>
+    </ul>
+  </nav>
 </body>
 
 <template name="miniMongoTable">
-  <div class="container">
-    <div class="row">
-      <div class="col col-md-6">
-        <h1>Minimongo Table</h1>
-      </div>
-      <div class="col col-md-6">
-        <div class="pull-right">
-          <a class="getTheCode" href="http://github.com/awatson1978/minimongo-table">get the code</a>
-        </div>
-      </div>
-    </div>
-    <hr/>
       <div class="row">
         <div class="col col-md-6">
           <input id="searchInput" type="text" class="form-control" placeholder="search..." />
@@ -31,7 +36,7 @@
           </div>
         </div>
       </div>
-    <hr/>
+    <hr>
 
     <table id="example" class=" table table-striped tablesorter">
       <thead>
@@ -62,7 +67,6 @@
         {{> paginationButton }}
       {{/each}}
     </div>
-  </div>
 </template>
 
 <template name="paginationButton">

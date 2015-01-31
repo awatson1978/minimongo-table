@@ -6,4 +6,5 @@
 standard-app-packages
 insecure
 less
-bootstrap-3
+nemo64:bootstrap
+natestrauser:font-awesome
