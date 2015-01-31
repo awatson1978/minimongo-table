@@ -33,6 +33,5 @@ before_install:
   - "meteor reset"
   - "meteor -p 3000 &"
   # give Meteor some time to download packages, init data, and to start
-  - "sleep 1000"
-script:
-  - "./run_nightwatch.sh"
+  - "sleep 200"
+script: ./run_nightwatch.sh
