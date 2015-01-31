@@ -11,7 +11,6 @@ nemo64:bootstrap
 natestrauser:font-awesome
 
 #testing pacakges
-velocity:nightwatch-framework
-velocity:html-reporter
 
 #clinical:nightwatch
+clinical:nightwatch
