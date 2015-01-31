@@ -27,6 +27,7 @@ before_install:
   # install meteor
   - "curl https://install.meteor.com | /bin/sh"
   # setup Meteor app
+  - "pwd"
   - "cd webapp"
   # Optionally we can update all our dependencies here
   #- "meteor update"
@@ -34,5 +35,4 @@ before_install:
   - "meteor -p 3000 &"
   # give Meteor some time to download packages, init data, and to start
   - "sleep 200"
-  - "pwd"
 script: ./run_nightwatch.sh
