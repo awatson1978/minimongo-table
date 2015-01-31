@@ -4,7 +4,10 @@ module.exports = {
     client
     .url("http://localhost:3000")
     .waitForElementVisible('body', 1000)
-    .waitForElementVisible("#customersTable", 1000)
+
+    // lets give it a long time, because we'll be running this on travis
+    // and there are lots of customers to load
+    .waitForElementVisible("#customersTable", 5000)
 
     // make sure we have all the main elements in the table
     .verify.elementPresent("#searchInput")
