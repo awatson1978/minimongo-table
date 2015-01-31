@@ -1,5 +1,4 @@
 CustomerAccounts =  new Meteor.Collection("customerAccounts");
-
 CustomerAccounts.allow({
   insert: function(){
     return true;
