@@ -1,6 +1,6 @@
 // tests/leaderboard.js
 module.exports = {
-  "Leaderboard Walkthrough" : function (client) {
+  "MiniMongo Table Walkthrough" : function (client) {
     client
     .url("http://localhost:3000")
     .waitForElementVisible('body', 1000)
